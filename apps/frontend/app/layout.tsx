@@ -3,7 +3,6 @@ import './react-grid-layout.scss';
 import { getSession } from '@/app/lib/auth';
 import { PostHogIdentify, PostHogProvider } from '@/app/posthog-provider';
 import { Toaster } from '@trylinky/ui';
-import { Analytics } from '@vercel/analytics/react';
 import { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { headers } from 'next/headers';
@@ -18,15 +17,15 @@ export const metadata: Metadata = {
   title: 'Linky - A delightfully rich link-in-bio.',
   description:
     'Create your own dynamic link in bio page effortlessly with Linky, the personal page builder designed to help you stand out and connect with your audience.',
-  metadataBase: new URL('https://lin.ky'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://links.itsabhinaba.in'),
   openGraph: {
     images: [
       {
-        url: 'https://lin.ky/assets/og.png',
+        url: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://links.itsabhinaba.in'}/assets/og.png`,
       },
     ],
     type: 'website',
-    url: 'https://lin.ky',
+    url: process.env.NEXT_PUBLIC_BASE_URL || 'https://links.itsabhinaba.in',
     title: 'Linky',
     description:
       'Create your own dynamic link in bio page effortlessly with Linky, the personal page builder designed to help you stand out and connect with your audience.',
@@ -36,7 +35,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@trylinky',
     creator: '@trylinky',
-    images: 'https://lin.ky/assets/og.png',
+    images: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://links.itsabhinaba.in'}/assets/og.png`,
   },
 };
 
@@ -76,7 +75,6 @@ export default async function RootLayout({
           />
         )}
       </PostHogProvider>
-      <Analytics />
     </html>
   );
 }

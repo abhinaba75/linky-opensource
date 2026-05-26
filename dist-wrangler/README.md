@@ -1,0 +1,1 @@
+This folder contains the built output assets for the worker "linky-api" generated at 2026-05-26T17:57:52.109Z.

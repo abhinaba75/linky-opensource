@@ -1,0 +1,23 @@
+name = "linky-api"
+main = "dist-worker/index.js"
+compatibility_date = "2025-09-25"
+compatibility_flags = ["nodejs_compat"]
+
+[build]
+command = "node build-worker.js"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "linky-db"
+database_id = "938c4973-c160-4a09-a383-57f14dccafd1"
+
+[[r2_buckets]]
+binding = "UPLOADS"
+bucket_name = "linky-uploads"
+
+[vars]
+APP_ENV = "production"
+APP_FRONTEND_URL = "https://links.itsabhinaba.in"
+API_BASE_URL = "https://linky-api.abhinaba.workers.dev"
+COOKIE_DOMAIN = ".itsabhinaba.in"
+NODE_ENV = "production"

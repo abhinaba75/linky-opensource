@@ -1,0 +1,10 @@
+const proc = globalThis.process;
+export default proc;
+export const env = proc.env;
+export const argv = proc.argv;
+export const version = proc.version;
+export const platform = proc.platform;
+export const nextTick = proc.nextTick;
+export const cwd = proc.cwd;
+export const stdout = proc.stdout;
+export const stderr = proc.stderr;

@@ -38,11 +38,6 @@ export async function acceptInvite(invitationId: string) {
         id: dbInvite?.organization.id,
       },
       select: {
-        subscription: {
-          select: {
-            seats: true,
-          },
-        },
         members: {
           select: {
             id: true,
@@ -50,14 +45,6 @@ export async function acceptInvite(invitationId: string) {
         },
       },
     });
-
-    if (org?.members && org?.subscription?.seats) {
-      if (org.members.length >= org.subscription.seats) {
-        return {
-          error: 'You have reached the maximum number of seats for your plan',
-        };
-      }
-    }
 
     return {
       success: true,

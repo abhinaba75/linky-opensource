@@ -10,7 +10,7 @@ import { authenticateDecorator } from '@/decorators/authenticate';
 import { trustedOrigins } from '@/lib/origins';
 import analyticsRoutes from '@/modules/analytics';
 import assetsRoutes from '@/modules/assets';
-import billingRoutes from '@/modules/billing';
+
 import flagsRoutes from '@/modules/flags';
 import integrationsRoutes from '@/modules/integrations';
 import orchestratorsRoutes from '@/modules/orchestrators';
@@ -21,7 +21,6 @@ import spotifyServiceRoutes from '@/modules/services/spotify';
 import threadsServiceRoutes from '@/modules/services/threads';
 import themesRoutes from '@/modules/themes';
 import cors from '@fastify/cors';
-import fastifyExpress from '@fastify/express';
 import fastifyMultipart from '@fastify/multipart';
 import fastifySensible from '@fastify/sensible';
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
@@ -34,7 +33,6 @@ import fastifyRawBody from 'fastify-raw-body';
 export const fastify: FastifyInstance =
   Fastify().withTypeProvider<TypeBoxTypeProvider>();
 
-await fastify.register(fastifyExpress);
 await fastify.register(fastifySensible);
 
 await fastify.register(fastifyRawBody, {
@@ -73,7 +71,6 @@ fastify.register(orchestratorsRoutes, { prefix: '/orchestrators' });
 fastify.register(analyticsRoutes, { prefix: '/analytics' });
 fastify.register(flagsRoutes, { prefix: '/flags' });
 fastify.register(organizationsRoutes, { prefix: '/organizations' });
-fastify.register(billingRoutes, { prefix: '/billing' });
 
 fastify.register(tiktokServiceRoutes as any, { prefix: '/services/tiktok' });
 fastify.register(instagramServiceRoutes, { prefix: '/services/instagram' });
@@ -163,5 +160,3 @@ const start = async () => {
 };
 
 start();
-
-export default fastify;

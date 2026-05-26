@@ -12,10 +12,6 @@ import {
   getPageTheme,
 } from '@/app/lib/actions/page-actions';
 import { getSession } from '@/app/lib/auth';
-import {
-  PremiumOnboardingDialog,
-  TeamOnboardingDialog,
-} from '@/components/PremiumOnboardingDialog';
 import { headers } from 'next/headers';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -141,8 +137,6 @@ export default async function PageLayout(props: {
 
       {session?.data?.user && (
         <>
-          <PremiumOnboardingDialog />
-          <TeamOnboardingDialog />
           <UserOnboardingDialog />
         </>
       )}

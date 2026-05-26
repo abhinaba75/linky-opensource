@@ -99,7 +99,7 @@ function HandleScreen({
             Choose your page handle
           </h2>
           <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 mt-1">
-            This will be your page's unique web address on lin.ky.
+            This will be your page's unique web address on {process.env.NEXT_PUBLIC_ROOT_DOMAIN || 'lin.ky'}.
           </p>
         </div>
         <div className="flex-grow">

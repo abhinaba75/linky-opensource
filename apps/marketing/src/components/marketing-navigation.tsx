@@ -54,9 +54,7 @@ export default function MarketingNavigation({ children }: Props) {
               </Link>
             </div>
             <div className="flex flex-1 items-center justify-end gap-x-1">
-              <Button asChild variant="ghost" className="hidden sm:flex">
-                <Link href="/i/pricing">Pricing</Link>
-              </Button>
+
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="hidden sm:flex">
@@ -171,13 +169,6 @@ export default function MarketingNavigation({ children }: Props) {
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="py-6">
-                  <Link
-                    href="/i/pricing"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  >
-                    Pricing
-                  </Link>
                   <Link
                     href="/i/explore"
                     onClick={() => setMobileMenuOpen(false)}

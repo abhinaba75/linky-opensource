@@ -1,6 +1,5 @@
 import { MiddlewareConfig, NextRequest, NextResponse } from 'next/server';
 
-export const runtime = 'experimental-edge';
 
 export const config: MiddlewareConfig = {
   matcher: [

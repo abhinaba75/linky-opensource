@@ -22,7 +22,7 @@ export const auth = betterAuth({
   },
   trustedOrigins,
   database: prismaAdapter(prisma as PrismaClient, {
-    provider: 'postgresql',
+    provider: 'sqlite',
   }),
   socialProviders: {
     google: {
@@ -49,7 +49,23 @@ export const auth = betterAuth({
       process.env.NODE_ENV === 'production'
         ? {
             enabled: true,
-            domain: '.lin.ky',
+            domain: (() => {
+              if (process.env.COOKIE_DOMAIN) {
+                return process.env.COOKIE_DOMAIN;
+              }
+              if (process.env.APP_FRONTEND_URL) {
+                try {
+                  const url = new URL(process.env.APP_FRONTEND_URL);
+                  const parts = url.hostname.split('.');
+                  if (parts.length >= 2) {
+                    return `.${parts.slice(-2).join('.')}`;
+                  }
+                } catch (e) {
+                  // ignore
+                }
+              }
+              return '.lin.ky';
+            })(),
           }
         : {
             enabled: false,
@@ -73,6 +89,21 @@ export const auth = betterAuth({
   databaseHooks: {
     user: {
       create: {
+        before: async (user) => {
+          const userCount = await prisma.user.count();
+          if (userCount > 0) {
+            const allowedEmailsStr = process.env.ALLOWED_EMAILS;
+            if (allowedEmailsStr) {
+              const allowedEmails = allowedEmailsStr.split(',').map((e) => e.trim().toLowerCase());
+              if (!user.email || !allowedEmails.includes(user.email.toLowerCase())) {
+                throw new Error('Registration is restricted to authorized users.');
+              }
+            } else {
+              throw new Error('Registration is disabled.');
+            }
+          }
+          return { data: user };
+        },
         after: async (user) => {
           await handleUserCreated({ userId: user.id });
           await createUserInitialFlags(user.id);

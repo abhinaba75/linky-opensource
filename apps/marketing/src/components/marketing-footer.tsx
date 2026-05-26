@@ -118,14 +118,7 @@ export default function MarketingFooter() {
                     Features
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    href="/i/pricing"
-                    className="transition-colors hover:text-white/90"
-                  >
-                    Pricing
-                  </Link>
-                </li>
+
                 <li>
                   <Link
                     href="/i/auth/signup"

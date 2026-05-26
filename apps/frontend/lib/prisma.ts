@@ -1,43 +1,49 @@
-import { PrismaPg } from '@prisma/adapter-pg';
-import { withAccelerate } from '@prisma/extension-accelerate';
-import { withOptimize } from '@prisma/extension-optimize';
 import { PrismaClient } from '@trylinky/prisma';
 import 'server-only';
+import { cache } from 'react';
 
-const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
+const getDb = cache(() => {
+  let d1: any = null;
 
-const prismaClientSingleton = () => {
-  if (!process.env.PRISMA_OPTIMIZE_API_KEY) {
-    return new PrismaClient({ adapter })
-      .$extends({
-        query: {
-          async $allOperations({ model, operation, args, query }) {
-            const before = Date.now();
-            const result = await query(args);
-            const after = Date.now();
-
-            console.log(`Query ${model}.${operation} took ${after - before}ms`);
-
-            return result;
-          },
-        },
-      })
-      .$extends(withAccelerate());
+  // Check for Cloudflare D1 binding via OpenNext
+  try {
+    const { getCloudflareContext } = require('@opennextjs/cloudflare');
+    const ctx = getCloudflareContext();
+    if (ctx?.env?.DB) {
+      d1 = ctx.env.DB;
+    }
+  } catch (e) {
+    // Not in Cloudflare Workers environment
   }
 
-  return new PrismaClient({ adapter })
-    .$extends(withOptimize({ apiKey: process.env.PRISMA_OPTIMIZE_API_KEY }))
-    .$extends(withAccelerate());
-};
+  // Fallback: check globalThis.env (worker environment)
+  if (!d1 && typeof globalThis !== 'undefined' && (globalThis as any).env?.DB) {
+    d1 = (globalThis as any).env.DB;
+  }
 
-type PrismaClientSingleton = ReturnType<typeof prismaClientSingleton>;
+  if (d1) {
+    const { PrismaD1 } = require('@prisma/adapter-d1');
+    const adapter = new PrismaD1(d1);
+    return new PrismaClient({ adapter });
+  }
 
-const globalForPrisma = globalThis as unknown as {
-  prisma: PrismaClientSingleton | undefined;
-};
+  // Local development SQLite fallback
+  const req = eval('require');
+  const { PrismaBetterSqlite3 } = req('@prisma/adapter-better-sqlite3');
+  const Database = req('better-sqlite3');
+  const db = new Database('./dev.db');
+  const adapter = new PrismaBetterSqlite3(db);
 
-const prisma = globalForPrisma.prisma ?? prismaClientSingleton();
+  return new PrismaClient({ adapter });
+});
 
-export default prisma;
-
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
+export default new Proxy({} as PrismaClient, {
+  get(_target, prop) {
+    const client = getDb();
+    const value = Reflect.get(client, prop);
+    if (typeof value === 'function') {
+      return value.bind(client);
+    }
+    return value;
+  },
+});

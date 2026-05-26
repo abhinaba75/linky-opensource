@@ -4,11 +4,6 @@ import { captureException } from '@sentry/node';
 import {
   MagicLinkEmail,
   OrganizationInviteEmail,
-  SubscriptionCancelledEmail,
-  SubscriptionUpgradedEmail,
-  TrialEndingSoonEmail,
-  TrialFinishedEmail,
-  TrialFinishedEmailText,
   WelcomeEmail,
 } from '@trylinky/notifications';
 import React from 'react';
@@ -67,29 +62,7 @@ export async function sendEmail({
   return;
 }
 
-export async function sendTrialReminderEmail(email: string) {
-  return await sendEmail({
-    email,
-    subject: 'Your Linky Premium trial is ending soon',
-    react: <TrialEndingSoonEmail />,
-  });
-}
 
-export async function sendTrialEndedEmail(email: string) {
-  return await sendEmail({
-    email,
-    subject: 'Your Linky Premium trial has ended',
-    text: TrialFinishedEmailText,
-  });
-}
-
-export async function sendSubscriptionDeletedEmail(email: string) {
-  return await sendEmail({
-    email,
-    subject: 'Your Linky subscription has been cancelled',
-    react: <SubscriptionCancelledEmail />,
-  });
-}
 
 export async function sendOrganizationInvitationEmail({
   email,
@@ -145,26 +118,4 @@ export async function sendMagicLinkEmail({
   });
 }
 
-export async function sendSubscriptionUpgradedTeamEmail({
-  email,
-}: {
-  email: string;
-}) {
-  return await sendEmail({
-    email,
-    subject: 'Your Linky subscription has been upgraded',
-    react: <SubscriptionUpgradedEmail planName="team" />,
-  });
-}
 
-export async function sendSubscriptionUpgradedPremiumEmail({
-  email,
-}: {
-  email: string;
-}) {
-  return await sendEmail({
-    email,
-    subject: 'Your Linky subscription has been upgraded',
-    react: <SubscriptionUpgradedEmail planName="premium" />,
-  });
-}

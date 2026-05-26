@@ -327,19 +327,6 @@ async function createPageHandler(
     },
   });
 
-  const maxNumberOfPages = 100;
-
-  if (teamPages.length >= maxNumberOfPages) {
-    if (user?.role !== 'ADMIN') {
-      return response.status(400).send({
-        error: {
-          message: 'You have reached the maximum number of pages',
-          label: 'Please upgrade your plan to create more pages',
-        },
-      });
-    }
-  }
-
   try {
     const res = await createNewPage({
       slug,

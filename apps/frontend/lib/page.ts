@@ -1,7 +1,6 @@
 import prisma from './prisma';
 import { getSession } from '@/app/lib/auth';
 import { headerBlockDefaults } from '@trylinky/blocks';
-import { track } from '@vercel/analytics/server';
 import { randomUUID } from 'crypto';
 import { headers } from 'next/headers';
 
@@ -25,7 +24,7 @@ export async function createNewPage(input: NewPageInput) {
 
   const { user, session: sessionData } = session.data ?? {};
 
-  await track('pageCreated', {
+  console.log('pageCreated', {
     teamId: sessionData?.activeOrganizationId ?? 'unknown',
     slug: input.slug,
   });

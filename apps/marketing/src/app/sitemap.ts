@@ -12,12 +12,6 @@ const baseSitemap = [
     priority: 1,
   },
   {
-    url: `${baseUrl}/i/pricing`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly',
-    priority: 0.7,
-  },
-  {
     url: `${baseUrl}/i/terms`,
     lastModified: new Date(),
     changeFrequency: 'monthly',

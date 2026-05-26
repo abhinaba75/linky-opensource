@@ -1,0 +1,27 @@
+name = "linky-frontend"
+main = ".open-next/worker.js"
+compatibility_date = "2025-04-01"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
+
+[images]
+binding = "IMAGES"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "linky-db"
+database_id = "938c4973-c160-4a09-a383-57f14dccafd1"
+
+[[r2_buckets]]
+binding = "UPLOADS"
+bucket_name = "linky-uploads"
+
+[vars]
+NEXT_PUBLIC_ROOT_DOMAIN = "links.itsabhinaba.in"
+NEXT_PUBLIC_BASE_URL = "https://links.itsabhinaba.in"
+NEXT_PUBLIC_API_URL = "https://linky-api.abhinaba.workers.dev"
+NEXT_PUBLIC_APP_ENV = "production"
+NODE_ENV = "production"

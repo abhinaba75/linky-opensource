@@ -2,7 +2,6 @@
 
 import { getSession } from '@/app/lib/auth';
 import prisma from '@/lib/prisma';
-import { VerificationRequestStatus } from '@trylinky/prisma';
 import { headers } from 'next/headers';
 
 export async function createVerificationRequest({
@@ -58,11 +57,11 @@ export async function createVerificationRequest({
 
   if (existingVerificationRequest) {
     switch (existingVerificationRequest.status) {
-      case VerificationRequestStatus.APPROVED:
+      case 'APPROVED':
         return {
           error: 'A verification request already exists for this page',
         };
-      case VerificationRequestStatus.PENDING:
+      case 'PENDING':
         return {
           error: 'A verification request is already pending for this page',
         };

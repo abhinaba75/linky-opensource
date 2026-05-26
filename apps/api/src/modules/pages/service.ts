@@ -76,10 +76,18 @@ export async function getPageIdBySlugOrDomain(slug: string, domain: string) {
     return null;
   }
 
+  const appDomain = new URL(process.env.APP_FRONTEND_URL || 'http://localhost:3000');
+  const rootDomain =
+    process.env.NODE_ENV === 'production'
+      ? appDomain.hostname
+      : `${appDomain.hostname}:${appDomain.port}`;
+
+  const customDomain = domain && decodeURIComponent(domain) !== rootDomain;
+
   const page = await prisma.page.findFirst({
     where: {
-      slug,
-      customDomain: domain ? decodeURIComponent(domain) : undefined,
+      slug: customDomain ? undefined : slug,
+      customDomain: customDomain ? decodeURIComponent(domain) : undefined,
       deletedAt: null,
     },
     select: {

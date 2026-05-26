@@ -1,4 +1,4 @@
-import fastify from '@/index';
+import { fastify } from '@/index';
 import { auth } from '@/lib/auth';
 import { HttpError } from '@fastify/sensible';
 import { captureException } from '@sentry/node';

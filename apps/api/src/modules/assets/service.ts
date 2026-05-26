@@ -23,7 +23,8 @@ const s3 = new S3({
     accessKeyId: process.env.AWS_ACCESS_KEY_ID as string,
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY as string,
   },
-  region: process.env.AWS_REGION,
+  region: process.env.AWS_REGION || 'auto',
+  endpoint: process.env.AWS_ENDPOINT_URL || undefined,
 });
 
 const uploadStream = (fileName: string, contentType: string) => {
@@ -32,7 +33,7 @@ const uploadStream = (fileName: string, contentType: string) => {
   const upload = new Upload({
     client: s3,
     params: {
-      Bucket: `${process.env.APP_ENV}.glow.user-uploads`,
+      Bucket: process.env.AWS_S3_BUCKET || `${process.env.APP_ENV}.glow.user-uploads`,
       Key: fileName,
       ContentType: contentType,
       Body: passThrough,
@@ -59,6 +60,55 @@ export async function uploadAsset({
   const assetConfig = assetContexts[context];
   const fileId = randomUUID();
   const baseFileName = `${assetConfig.keyPrefix}-${referenceId}/${fileId}`;
+
+  const isWorker = typeof (globalThis as any).WebSocketPair !== 'undefined' || !!(globalThis as any).env;
+  if (isWorker) {
+    let buffer: Buffer;
+    let contentType = 'image/png';
+    let filename = `${baseFileName}.png`;
+
+    if (file) {
+      const arrayBuffer = await file.arrayBuffer();
+      buffer = Buffer.from(arrayBuffer);
+      contentType = file.type || contentType;
+      const ext = file.name ? file.name.split('.').pop() : 'png';
+      filename = `${baseFileName}.${ext}`;
+    } else if (multipartFile) {
+      buffer = await multipartFile.toBuffer();
+      contentType = multipartFile.mimetype || contentType;
+      const ext = multipartFile.filename ? multipartFile.filename.split('.').pop() : 'png';
+      filename = `${baseFileName}.${ext}`;
+    } else {
+      throw new Error('No file provided');
+    }
+
+    // Use R2 binding directly if available (no API keys needed)
+    const r2Bucket = (globalThis as any).env?.UPLOADS;
+    if (r2Bucket) {
+      await r2Bucket.put(filename, buffer, {
+        httpMetadata: { contentType },
+      });
+    } else {
+      // Fallback to S3 SDK (for local dev or when R2 binding is not available)
+      const bucketName = process.env.AWS_S3_BUCKET || `${process.env.APP_ENV}.glow.user-uploads`;
+      await s3.putObject({
+        Bucket: bucketName,
+        Key: filename,
+        ContentType: contentType,
+        Body: buffer,
+      });
+    }
+
+    const fileLocation = process.env.ASSETS_CDN_URL
+      ? `${process.env.ASSETS_CDN_URL}/${filename}`
+      : `https://cdn.lin.ky/${filename}`;
+
+    return {
+      data: {
+        url: fileLocation,
+      },
+    };
+  }
 
   // Create upload streams for webp and png
   const { writeStream: webpStream, done: webpDone } = uploadStream(
@@ -107,7 +157,9 @@ export async function uploadAsset({
     // Check if uploads are successful
     if (isComplete(webpUpload) && isComplete(pngUpload)) {
       const fileLocation =
-        process.env.APP_ENV === 'development'
+        process.env.ASSETS_CDN_URL
+          ? `${process.env.ASSETS_CDN_URL}/${webpUpload.Key}`
+          : process.env.APP_ENV === 'development'
           ? `https://cdn.dev.lin.ky/${webpUpload.Key}`
           : `https://cdn.lin.ky/${webpUpload.Key}`;
 
