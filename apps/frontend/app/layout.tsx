@@ -2,7 +2,7 @@ import './globals.css';
 import './react-grid-layout.scss';
 import { getSession } from '@/app/lib/auth';
 import { PostHogIdentify, PostHogProvider } from '@/app/posthog-provider';
-import { Toaster } from '@trylinky/ui';
+import { Toaster } from '@app/ui';
 import { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { headers } from 'next/headers';
@@ -14,9 +14,9 @@ const seasonFont = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Linky - A delightfully rich link-in-bio.',
+  title: 'Links',
   description:
-    'Create your own dynamic link in bio page effortlessly with Linky, the personal page builder designed to help you stand out and connect with your audience.',
+    'Personal links page',
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://links.itsabhinaba.in'),
   openGraph: {
     images: [
@@ -26,15 +26,15 @@ export const metadata: Metadata = {
     ],
     type: 'website',
     url: process.env.NEXT_PUBLIC_BASE_URL || 'https://links.itsabhinaba.in',
-    title: 'Linky',
+    title: 'Links',
     description:
-      'Create your own dynamic link in bio page effortlessly with Linky, the personal page builder designed to help you stand out and connect with your audience.',
-    siteName: 'Linky',
+      'Personal links page',
+    siteName: 'Links',
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@trylinky',
-    creator: '@trylinky',
+    site: '',
+    creator: '',
     images: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://links.itsabhinaba.in'}/assets/og.png`,
   },
 };

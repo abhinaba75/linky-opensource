@@ -14,9 +14,9 @@ export const linkBoxBlockDefaults: LinkBoxBlockConfig = {
   icon: {
     src: 'https://cdn.lin.ky/default-data/x-logo.png',
   },
-  link: 'https://x.com/trylinky',
+  link: 'https://x.com',
   title: 'X',
-  label: 'Follow us on X',
+  label: 'Follow on X',
   showPreview: false,
 };
 

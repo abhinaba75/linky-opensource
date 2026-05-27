@@ -1,7 +1,7 @@
 'use client';
 
 import { auth } from '@/app/lib/auth';
-import { Button } from '@trylinky/ui';
+import { Button } from '@app/ui';
 import Link from 'next/link';
 import { FormEvent, useState } from 'react';
 

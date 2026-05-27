@@ -3,7 +3,7 @@
 import { decrypt, encrypt } from '@/lib/encrypt';
 import prisma from '@/lib/prisma';
 const captureException = console.error; const captureMessage = console.log;
-import { TikTokIntegrationConfig } from '@trylinky/blocks';
+import { TikTokIntegrationConfig } from '@app/blocks';
 
 async function refreshLongLivedToken({
   refreshToken,

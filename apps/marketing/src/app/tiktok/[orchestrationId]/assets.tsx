@@ -1,4 +1,4 @@
-import { cn } from '@trylinky/ui';
+import { cn } from '@app/ui';
 
 export const BrandLogo = ({ shouldAnimate }: { shouldAnimate?: boolean }) => {
   return (

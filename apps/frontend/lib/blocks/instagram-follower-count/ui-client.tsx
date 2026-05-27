@@ -1,8 +1,8 @@
 import { BlockProps } from '../ui';
 import { InstagramFollowerCountServerUI } from './ui-server';
 import { CoreBlock } from '@/components/CoreBlock';
-import { InstagramFollowerCountBlockConfig } from '@trylinky/blocks';
-import { Skeleton } from '@trylinky/ui';
+import { InstagramFollowerCountBlockConfig } from '@app/blocks';
+import { Skeleton } from '@app/ui';
 import { FunctionComponent, Suspense } from 'react';
 
 export const InstagramFollowerCount: FunctionComponent<

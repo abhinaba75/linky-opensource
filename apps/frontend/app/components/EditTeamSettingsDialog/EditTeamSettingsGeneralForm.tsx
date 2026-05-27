@@ -4,7 +4,7 @@ import { FormField } from '../FormField';
 import { updateGeneralTeamSettings } from './actions';
 import { generalTeamSettingsSchema } from './shared';
 const captureException = console.error; const captureMessage = console.log;
-import { Button, DialogFooter, useToast } from '@trylinky/ui';
+import { Button, DialogFooter, useToast } from '@app/ui';
 import { Form, Formik, FormikHelpers } from 'formik';
 import { withZodSchema } from 'formik-validator-zod';
 import { Loader2 } from 'lucide-react';

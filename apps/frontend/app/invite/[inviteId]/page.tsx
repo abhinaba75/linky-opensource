@@ -1,7 +1,7 @@
 import { LoggedInAcceptInviteUI, LoggedOutAcceptInviteUI } from './accept-ui';
 import { auth } from '@/app/lib/auth';
 import prisma from '@/lib/prisma';
-import { Avatar, AvatarFallback, AvatarImage } from '@trylinky/ui';
+import { Avatar, AvatarFallback, AvatarImage } from '@app/ui';
 import { headers } from 'next/headers';
 
 const getInvite = async (inviteId: string) => {
@@ -69,10 +69,10 @@ export default async function AcceptInvitePage(props: {
           </AvatarFallback>
         </Avatar>
         <h1 className="text-2xl font-bold text-slate-900 mb-2">
-          Join {invite?.organization.name} on Linky!
+          Join {invite?.organization.name}!
         </h1>
         <p className="mb-4 max-w-md mx-auto text-pretty">
-          You&apos;ve been invited to join {invite?.organization.name} on Linky
+          You&apos;ve been invited to join {invite?.organization.name}
           by {invite?.inviter.name}.
           <br />
           {session?.data

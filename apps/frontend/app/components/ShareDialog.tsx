@@ -12,7 +12,7 @@ import {
   TabsList,
   TabsTrigger,
   toast,
-} from '@trylinky/ui';
+} from '@app/ui';
 import { useState } from 'react';
 import QRCode from 'react-qr-code';
 

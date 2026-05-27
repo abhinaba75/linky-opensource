@@ -4,8 +4,8 @@ import { isForbiddenSlug } from '@/lib/slugs';
 import { regexSlug } from '@/lib/slugs';
 import { makeId } from '@/modules/pages/utils';
 import { captureException } from '@sentry/node';
-import { headerBlockDefaults } from '@trylinky/blocks';
-import { Prisma } from '@trylinky/prisma';
+import { headerBlockDefaults } from '@app/blocks';
+import { Prisma } from '@app/prisma';
 import { randomUUID } from 'crypto';
 
 type LayoutEntry = { i: string; [key: string]: unknown };

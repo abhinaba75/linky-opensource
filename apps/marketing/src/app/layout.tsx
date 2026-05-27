@@ -1,8 +1,8 @@
 import './globals.css';
 import MarketingFooter from '@/components/marketing-footer';
 import MarketingNavigation from '@/components/marketing-navigation';
-import { LoginWidget } from '@trylinky/common';
-import { Button } from '@trylinky/ui';
+import { LoginWidget } from '@app/common';
+import { Button } from '@app/ui';
 import { Analytics } from '@vercel/analytics/react';
 import { Metadata } from 'next';
 import localFont from 'next/font/local';

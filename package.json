@@ -1,8 +1,8 @@
 {
-  "name": "@trylinky/linky",
+  "name": "links-page",
   "version": "1.0.0",
   "private": true,
-  "repository": "https://github.com/trylinky/linky.git",
+  "repository": "https://github.com/abhinaba75/linky-opensource.git",
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@typescript-eslint/eslint-plugin": "^8.14.0",

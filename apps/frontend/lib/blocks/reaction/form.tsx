@@ -1,5 +1,5 @@
 import { EditFormProps } from '../types';
-import { ReactionBlockConfig } from '@trylinky/blocks';
+import { ReactionBlockConfig } from '@app/blocks';
 
 export function EditForm({}: EditFormProps<ReactionBlockConfig>) {
   return (

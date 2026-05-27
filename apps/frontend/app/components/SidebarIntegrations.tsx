@@ -3,8 +3,8 @@ import {
   SupportedIntegrations,
 } from '@/app/components/BlockIntegrationUI';
 const captureException = console.error; const captureMessage = console.log;
-import { InternalApi, internalApiFetcher } from '@trylinky/common';
-import { Integration } from '@trylinky/prisma';
+import { InternalApi, internalApiFetcher } from '@app/common';
+import { Integration } from '@app/prisma';
 import {
   SidebarContentHeader,
   SidebarGroup,
@@ -17,7 +17,7 @@ import {
   DialogHeader,
   DialogTitle,
   toast,
-} from '@trylinky/ui';
+} from '@app/ui';
 import { useState } from 'react';
 import useSWR, { useSWRConfig } from 'swr';
 

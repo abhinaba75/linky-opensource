@@ -3,8 +3,8 @@ import { SpotifyLogo } from '@/app/components/integration-icons/spotify';
 import { ThreadsLogo } from '@/app/components/integration-icons/threads';
 import { TikTokLogo } from '@/app/components/integration-icons/tiktok';
 const captureException = console.error; const captureMessage = console.log;
-import { InternalApi, internalApiFetcher } from '@trylinky/common';
-import { Integration } from '@trylinky/prisma';
+import { InternalApi, internalApiFetcher } from '@app/common';
+import { Integration } from '@app/prisma';
 import {
   Select,
   SelectContent,
@@ -13,7 +13,7 @@ import {
   SelectValue,
   Button,
   toast,
-} from '@trylinky/ui';
+} from '@app/ui';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -162,7 +162,7 @@ export function BlockIntegrationUI({
             <div className="mt-4">
               <span className="font-normal text-stone-600 mt-1">
                 You already have an {integrationUIConfig[integrationType].name}{' '}
-                account connected to Linky. Select your account below, or
+                account connected. Select your account below, or
                 connect a new one.
               </span>
               <Select onValueChange={handleSelectIntegration}>

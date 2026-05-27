@@ -3,7 +3,7 @@
 import { decrypt, encrypt } from '@/lib/encrypt';
 import prisma from '@/lib/prisma';
 const captureException = console.error; const captureMessage = console.log;
-import { SpotifyIntegrationConfig } from '@trylinky/blocks';
+import { SpotifyIntegrationConfig } from '@app/blocks';
 import safeAwait from 'safe-await';
 
 /**

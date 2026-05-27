@@ -1,5 +1,5 @@
 import { RenderPageTheme } from '@/app/[domain]/[slug]/render-page-theme';
-import { LinkyProviders } from '@/app/components/LinkyProviders';
+import { AppProviders } from '@/app/components/AppProviders';
 import { ShareButton } from '@/app/components/ShareButton';
 import { UserOnboardingDialog } from '@/app/components/UserOnboardingDialog';
 import { getEnabledBlocks } from '@/app/lib/actions/blocks';
@@ -84,7 +84,7 @@ export default async function PageLayout(props: {
   }
 
   return (
-    <LinkyProviders
+    <AppProviders
       currentUserIsOwner={currentUserIsOwner}
       pageId={page.id}
       value={{
@@ -102,19 +102,7 @@ export default async function PageLayout(props: {
             </div>
             {children}
 
-            <div className="w-full py-3 flex items-center justify-center">
-              <Link
-                href={`https://lin.ky/?utm_source=page_footer&utm_campaign=${page.slug}`}
-                className="flex flex-col text-center justify-center"
-              >
-                <span className="uppercase text-[0.6rem] tracking-tight font-medium text-sys-title-secondary">
-                  Made with{' '}
-                </span>
-                <span className="font-bold text-lg -mt-1 text-sys-title-primary">
-                  linky
-                </span>
-              </Link>
-            </div>
+
           </div>
         </main>
       ) : (
@@ -152,6 +140,6 @@ export default async function PageLayout(props: {
             data-page-id={page.id}
           />
         )}
-    </LinkyProviders>
+    </AppProviders>
   );
 }

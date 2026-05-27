@@ -6,14 +6,14 @@ import { ThemeStep } from './ThemeStep';
 import { regexSlug } from '@/lib/slugs';
 import { defaultThemeSeeds } from '@/lib/theme';
 const captureException = console.error; const captureMessage = console.log;
-import { InternalApi } from '@trylinky/common';
+import { InternalApi } from '@app/common';
 import {
   Dialog,
   DialogContent,
   DialogTitle,
   Button,
   useToast,
-} from '@trylinky/ui';
+} from '@app/ui';
 import { Formik, Form, FormikHelpers } from 'formik';
 import { Loader2 } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -50,12 +50,12 @@ function WelcomeScreen({ onNext }: { onNext: () => void }) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/assets/logo.png"
-          alt="Linky Logo"
+          alt="Logo"
           className="mb-4 md:mb-6 w-16 h-16 md:w-24 md:h-24 drop-shadow-lg animate-fade-in rounded-xl"
         />
         {/* Heading */}
         <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-slate-100">
-          Welcome to <span className="text-primary">Linky</span>
+          Welcome!
         </h2>
         {/* Subtitle */}
         <p className="text-base md:text-lg text-slate-500 dark:text-slate-400 mt-2 max-w-md">

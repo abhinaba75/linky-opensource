@@ -3,7 +3,7 @@
 import { auth, useSession } from '@/app/lib/auth';
 import { EditTeamSettingsDialog } from '@/components/EditTeamSettingsDialog/EditTeamSettingsDialog';
 import { NewPageDialog } from '@/components/NewPageDialog';
-import { Organization } from '@trylinky/prisma';
+import { Organization } from '@app/prisma';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,7 +15,7 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from '@trylinky/ui';
+} from '@app/ui';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 

@@ -9,23 +9,7 @@ import {
 } from '@react-email/components';
 import * as React from 'react';
 
-const socialLinks: SocialLink[] = [
-  {
-    href: 'https://x.com/trylinky',
-    icon: 'https://cdn.lin.ky/email-assets/icons/x.png',
-    alt: 'Twitter',
-  },
-  {
-    href: 'https://instagram.com/trylinky',
-    icon: 'https://cdn.lin.ky/email-assets/icons/instagram.png',
-    alt: 'Instagram',
-  },
-  {
-    href: 'https://linkedin.com/company/trylinky',
-    icon: 'https://cdn.lin.ky/email-assets/icons/linkedin.png',
-    alt: 'LinkedIn',
-  },
-];
+const socialLinks: SocialLink[] = [];
 
 interface SocialLink {
   href: string;
@@ -56,10 +40,7 @@ export const EmailFooter = () => {
           </Row>
         )}
 
-        <Text style={copyright}>Linky 2025</Text>
-        <Text style={footerText}>
-          123 City Road, London, United Kingdom, EC1V 2NX
-        </Text>
+        <Text style={copyright}>&copy; {new Date().getFullYear()}</Text>
       </Section>
     </>
   );

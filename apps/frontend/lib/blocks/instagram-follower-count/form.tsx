@@ -1,8 +1,8 @@
 import { EditFormProps } from '../types';
 const captureException = console.error; const captureMessage = console.log;
-import { InstagramFollowerCountBlockConfig } from '@trylinky/blocks';
-import { InternalApi } from '@trylinky/common';
-import { Button, toast } from '@trylinky/ui';
+import { InstagramFollowerCountBlockConfig } from '@app/blocks';
+import { InternalApi } from '@app/common';
+import { Button, toast } from '@app/ui';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';

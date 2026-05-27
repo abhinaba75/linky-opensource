@@ -9,7 +9,7 @@ import {
   sendWelcomeFollowUpEmail,
 } from '@/modules/notifications/service';
 import { sendNewUserSlackMessage } from '@/modules/slack/service';
-import { PrismaClient } from '@trylinky/prisma';
+import { PrismaClient } from '@app/prisma';
 import { betterAuth, BetterAuthPlugin } from 'better-auth';
 import { prismaAdapter } from 'better-auth/adapters/prisma';
 import { admin, magicLink, organization } from 'better-auth/plugins';
@@ -64,7 +64,7 @@ export const auth = betterAuth({
                   // ignore
                 }
               }
-              return '.lin.ky';
+              return '.itsabhinaba.in';
             })(),
           }
         : {

@@ -4,8 +4,8 @@ import { useSession } from '@/app/lib/auth';
 import { hideOnboardingTour } from '@/app/lib/auth-actions';
 import { useTour } from '@reactour/tour';
 const captureException = console.error; const captureMessage = console.log;
-import { internalApiFetcher } from '@trylinky/common';
-import { UserFlag } from '@trylinky/prisma';
+import { internalApiFetcher } from '@app/common';
+import { UserFlag } from '@app/prisma';
 import {
   Dialog,
   DialogContent,
@@ -15,7 +15,7 @@ import {
   DialogTitle,
   Button,
   useIsMobile,
-} from '@trylinky/ui';
+} from '@app/ui';
 import { useState } from 'react';
 import useSWR from 'swr';
 
@@ -70,7 +70,7 @@ export function UserOnboardingDialog() {
             />
           </svg>
           <DialogTitle className="text-center font-bold text-2xl mb-1">
-            Welcome to Linky
+            Welcome!
           </DialogTitle>
           <span className="text-center text-slate-600">
             You just created your first page!

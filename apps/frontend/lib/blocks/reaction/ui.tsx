@@ -3,7 +3,7 @@
 import { CoreBlock } from '@/app/components/CoreBlock';
 import { BlockProps } from '@/lib/blocks/ui';
 import NumberFlow from '@number-flow/react';
-import { InternalApi, internalApiFetcher } from '@trylinky/common';
+import { InternalApi, internalApiFetcher } from '@app/common';
 import { motion } from 'framer-motion';
 import { FunctionComponent, useEffect, useRef, useState } from 'react';
 import useSWR from 'swr';

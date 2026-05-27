@@ -3,7 +3,7 @@
 import { decrypt, encrypt } from '@/lib/encrypt';
 import prisma from '@/lib/prisma';
 const captureException = console.error; const captureMessage = console.log;
-import { InstagramIntegrationConfig } from '@trylinky/blocks';
+import { InstagramIntegrationConfig } from '@app/blocks';
 
 async function refreshLongLivedToken({ accessToken }: { accessToken: string }) {
   const options = {

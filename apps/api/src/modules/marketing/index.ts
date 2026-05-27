@@ -1,5 +1,5 @@
 import prisma from '../../lib/prisma';
-import { Prisma } from '@trylinky/prisma';
+import { Prisma } from '@app/prisma';
 import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 
 type JsonObject = Prisma.JsonObject;

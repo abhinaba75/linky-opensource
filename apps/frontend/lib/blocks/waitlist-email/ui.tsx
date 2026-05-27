@@ -3,9 +3,9 @@
 import { BlockProps } from '../ui';
 import { submitSignupToWaitlistCom } from './action';
 import { CoreBlock } from '@/components/CoreBlock';
-import { WaitlistEmailBlockConfig } from '@trylinky/blocks';
-import { internalApiFetcher } from '@trylinky/common';
-import { toast } from '@trylinky/ui';
+import { WaitlistEmailBlockConfig } from '@app/blocks';
+import { internalApiFetcher } from '@app/common';
+import { toast } from '@app/ui';
 import { FunctionComponent, useState } from 'react';
 import { useFormStatus } from 'react-dom';
 import useSWR from 'swr';

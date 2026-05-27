@@ -1,3 +1,3 @@
-# @trylinky/tinybird
+# Tinybird
 
-This package contains the Tinybird tracking client for Linky.
+This package contains the Tinybird tracking client.

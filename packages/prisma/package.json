@@ -1,5 +1,5 @@
 {
-  "name": "@trylinky/prisma",
+  "name": "@app/prisma",
   "version": "1.0.0",
   "description": "",
   "type": "module",

@@ -3,15 +3,15 @@ import { CreateEditThemeForm } from '@/app/components/EditPageSettingsDialog/Cre
 import { PageThemePreview } from '@/app/components/PageThemePreview';
 import { setPageTheme } from '@/app/lib/actions/themes';
 import { getGoogleFontUrl } from '@/lib/fonts';
-import { internalApiFetcher } from '@trylinky/common';
-import { Theme } from '@trylinky/prisma';
+import { internalApiFetcher } from '@app/common';
+import { Theme } from '@app/prisma';
 import {
   toast,
   SidebarContentHeader,
   SidebarGroup,
   SidebarGroupContent,
   Button,
-} from '@trylinky/ui';
+} from '@app/ui';
 import { Plus } from 'lucide-react';
 import { useParams } from 'next/navigation';
 import { useState, useEffect } from 'react';

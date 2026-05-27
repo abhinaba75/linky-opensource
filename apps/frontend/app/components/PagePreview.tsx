@@ -2,7 +2,7 @@
 
 import { PageThemePreview } from '@/app/components/PageThemePreview';
 import { defaultThemeSeeds, themeColorToCssValue } from '@/lib/theme';
-import { Theme } from '@trylinky/prisma';
+import { Theme } from '@app/prisma';
 
 interface PagePreviewProps {
   pageSlug: string;

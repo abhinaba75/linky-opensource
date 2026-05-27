@@ -21,8 +21,10 @@ packages/prisma/src/generated
 
 # next.js
 .next
+.open-next
 out/
 dist
+dist-worker
 
 # production
 /build

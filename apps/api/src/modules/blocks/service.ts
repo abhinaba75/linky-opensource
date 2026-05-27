@@ -1,6 +1,6 @@
 import prisma from '@/lib/prisma';
-import { blocks, Blocks } from '@trylinky/blocks';
-import { Prisma, User } from '@trylinky/prisma';
+import { blocks, Blocks } from '@app/blocks';
+import { Prisma, User } from '@app/prisma';
 
 export async function getBlockById(blockId: string) {
   const block = await prisma.block.findUnique({

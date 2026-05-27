@@ -6,7 +6,7 @@ import {
   CheckIcon,
   PlusCircledIcon,
 } from '@radix-ui/react-icons';
-import { Page } from '@trylinky/prisma';
+import { Page } from '@app/prisma';
 import {
   Avatar,
   AvatarFallback,
@@ -20,8 +20,8 @@ import {
   CommandList,
   CommandSeparator,
   cn,
-} from '@trylinky/ui';
-import { Popover, PopoverContent, PopoverTrigger } from '@trylinky/ui';
+} from '@app/ui';
+import { Popover, PopoverContent, PopoverTrigger } from '@app/ui';
 import { useParams, useRouter } from 'next/navigation';
 import { useState } from 'react';
 

@@ -1,4 +1,4 @@
-import { PrismaClient } from '@trylinky/prisma';
+import { PrismaClient } from '@app/prisma';
 import 'server-only';
 import { cache } from 'react';
 

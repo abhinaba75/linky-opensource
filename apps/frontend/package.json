@@ -1,5 +1,5 @@
 {
-  "name": "@trylinky/frontend",
+  "name": "@app/frontend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -22,11 +22,11 @@
     "@radix-ui/react-icons": "^1.3.2",
     "@react-google-maps/api": "^2.20.3",
     "@reactour/tour": "^3.7.0",
-    "@trylinky/blocks": "workspace:*",
-    "@trylinky/common": "workspace:*",
-    "@trylinky/prisma": "workspace:*",
-    "@trylinky/tinybird": "workspace:*",
-    "@trylinky/ui": "workspace:*",
+    "@app/blocks": "workspace:*",
+    "@app/common": "workspace:*",
+    "@app/prisma": "workspace:*",
+    "@app/tinybird": "workspace:*",
+    "@app/ui": "workspace:*",
     "better-auth": "^1.4.3",
     "date-fns": "^4.1.0",
     "formik": "^2.4.6",

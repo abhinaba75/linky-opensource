@@ -7,7 +7,7 @@ import {
   StackMockup,
 } from '@/components/landing-page/ui-mockups';
 import { MarketingContainer } from '@/components/marketing-container';
-import { Prisma } from '@trylinky/prisma';
+import { Prisma } from '@app/prisma';
 
 type JsonValue = Prisma.JsonValue;
 

@@ -1,8 +1,8 @@
 import { BlockProps } from '../ui';
 import { CoreBlock } from '@/components/CoreBlock';
 import { LinkBoxServerUI } from '@/lib/blocks/link-box/ui-server';
-import { LinkBoxBlockConfig } from '@trylinky/blocks';
-import { cn } from '@trylinky/ui';
+import { LinkBoxBlockConfig } from '@app/blocks';
+import { cn } from '@app/ui';
 import { Suspense } from 'react';
 
 export function LinkBox(props: BlockProps & LinkBoxBlockConfig) {

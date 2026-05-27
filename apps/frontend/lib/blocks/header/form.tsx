@@ -1,16 +1,16 @@
 import { EditFormProps } from '../types';
 import { FormField } from '@/app/components/FormField';
 import { FormFileUpload } from '@/components/FormFileUpload';
-import { HeaderBlockConfig, HeaderSchema } from '@trylinky/blocks';
-import { internalApiFetcher } from '@trylinky/common';
-import { Page } from '@trylinky/prisma';
+import { HeaderBlockConfig, HeaderSchema } from '@app/blocks';
+import { internalApiFetcher } from '@app/common';
+import { Page } from '@app/prisma';
 import {
   Button,
   Checkbox,
   Label,
   RadioGroup,
   RadioGroupItem,
-} from '@trylinky/ui';
+} from '@app/ui';
 import { Form, Formik, FormikHelpers } from 'formik';
 import { Loader2 } from 'lucide-react';
 import useSWR, { useSWRConfig } from 'swr';
@@ -85,7 +85,7 @@ export function EditForm({
               <div className="flex flex-col gap-1">
                 <Label htmlFor="showVerifiedBadge">Show verified badge</Label>
                 <span className="text-sm text-stone-500">
-                  Your page has been verified by Linky. You can choose to show
+                  Your page has been verified. You can choose to show
                   this badge on your page.
                 </span>
               </div>
