@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import styles from './styles.module.scss';
-import { cn } from '@trylinky/ui';
+import { cn } from '@app/ui';
 
 const SpotifyLogo = () => {
   return (

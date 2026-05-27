@@ -1,7 +1,7 @@
 'use client';
 
 import { auth } from '../auth/auth';
-import { Button } from '@trylinky/ui';
+import { Button } from '@app/ui';
 import { ReactNode } from 'react';
 
 type EnabledProviders = 'google' | 'twitter' | 'tiktok';

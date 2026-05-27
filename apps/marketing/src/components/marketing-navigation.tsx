@@ -18,7 +18,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@trylinky/ui';
+} from '@app/ui';
 import Link from 'next/link';
 import { ReactNode, useState } from 'react';
 

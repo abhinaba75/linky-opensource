@@ -101,7 +101,7 @@ export async function uploadAsset({
 
     const fileLocation = process.env.ASSETS_CDN_URL
       ? `${process.env.ASSETS_CDN_URL}/${filename}`
-      : `https://cdn.lin.ky/${filename}`;
+      : `https://cdn.itsabhinaba.in/${filename}`;
 
     return {
       data: {
@@ -160,8 +160,8 @@ export async function uploadAsset({
         process.env.ASSETS_CDN_URL
           ? `${process.env.ASSETS_CDN_URL}/${webpUpload.Key}`
           : process.env.APP_ENV === 'development'
-          ? `https://cdn.dev.lin.ky/${webpUpload.Key}`
-          : `https://cdn.lin.ky/${webpUpload.Key}`;
+          ? `https://cdn.dev.itsabhinaba.in/${webpUpload.Key}`
+          : `https://cdn.itsabhinaba.in/${webpUpload.Key}`;
 
       return {
         data: {

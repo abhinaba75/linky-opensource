@@ -15,43 +15,32 @@ import * as React from 'react';
 const WelcomeEmail = () => (
   <Html>
     <Head />
-    <Preview>Welcome to Linky - The delightfully rich link-in-bio</Preview>
+    <Preview>Welcome to your links page</Preview>
     <Tailwind>
       <Body style={styles.main}>
         <Container style={styles.container}>
           <Logo />
           <EmailHeader
-            title="Welcome to Linky"
-            subtitle="The delightfully rich link-in-bio"
-            imageUrl="https://cdn.lin.ky/email-assets/welcome-header.png"
-            imageAlt="Welcome to Linky"
+            title="Welcome!"
+            subtitle="Your personal links page is ready"
           />
 
           <Section>
             <Text style={styles.paragraph}>Thanks for signing up!</Text>
 
             <Text style={styles.paragraph}>
-              My name is Alex, the founder of Linky. You're now part of a
-              growing community of over 3,000 creators who are using Linky to
-              power their link-in-bio.
-            </Text>
-
-            <Text style={styles.paragraph}>
-              To help you get the most out of Linky, here's a few recommended
+              Your personal links page is ready. Here are some recommended
               first steps:
             </Text>
 
             <ul style={styles.list}>
               <li style={styles.listItem}>
-                <Link href="https://lin.ky/edit" style={styles.link}>
-                  Setup your first page
-                </Link>
+                Set up your page with blocks and integrations
               </li>
               <li style={styles.listItem}>
-                Add some integrations (I personally love the Spotify and Threads
-                integrations)
+                Customize your theme and layout
               </li>
-              <li style={styles.listItem}>Share your linky on your socials!</li>
+              <li style={styles.listItem}>Share your page on your socials!</li>
             </ul>
 
             <Text style={styles.paragraph}>
@@ -59,7 +48,7 @@ const WelcomeEmail = () => (
               email!
             </Text>
 
-            <SignOff label="Alex" />
+            <SignOff />
           </Section>
 
           <EmailFooter />

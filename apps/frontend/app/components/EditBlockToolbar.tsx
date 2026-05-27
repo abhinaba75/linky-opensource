@@ -4,9 +4,9 @@ import { PageConfig } from '@/app/[domain]/[slug]/grid';
 import { useEditModeContext } from '@/app/contexts/Edit';
 import { PencilSquareIcon, TrashIcon } from '@heroicons/react/24/outline';
 const captureException = console.error; const captureMessage = console.log;
-import { Blocks } from '@trylinky/blocks';
-import { InternalApi, internalApiFetcher } from '@trylinky/common';
-import { useSidebar, useToast } from '@trylinky/ui';
+import { Blocks } from '@app/blocks';
+import { InternalApi, internalApiFetcher } from '@app/common';
+import { useSidebar, useToast } from '@app/ui';
 import { useParams, useRouter } from 'next/navigation';
 import useSWR, { useSWRConfig } from 'swr';
 

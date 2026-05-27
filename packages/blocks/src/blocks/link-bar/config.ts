@@ -12,7 +12,7 @@ export interface LinkBarBlockConfig {
 export const linkBarBlockDefaults: LinkBarBlockConfig = {
   links: [
     {
-      link: 'https://x.com/trylinky',
+      link: 'https://x.com',
       icon: { src: 'https://cdn.lin.ky/default-data/icons/twitter.svg' },
     },
   ],

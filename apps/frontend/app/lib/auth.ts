@@ -1,4 +1,4 @@
-import { auth } from '@trylinky/common';
+import { auth } from '@app/common';
 
 export const { signIn, signOut, useSession, getSession } = auth;
 

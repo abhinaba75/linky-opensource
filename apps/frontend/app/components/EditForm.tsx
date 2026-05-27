@@ -1,8 +1,8 @@
 import { editForms } from '@/lib/blocks/edit';
 const captureException = console.error; const captureMessage = console.log;
-import { Blocks } from '@trylinky/blocks';
-import { InternalApi, internalApiFetcher } from '@trylinky/common';
-import { toast } from '@trylinky/ui';
+import { Blocks } from '@app/blocks';
+import { InternalApi, internalApiFetcher } from '@app/common';
+import { toast } from '@app/ui';
 import { useRouter } from 'next/navigation';
 import useSWR from 'swr';
 

@@ -6,7 +6,7 @@ import { generalPageSettingsSchema } from './shared';
 import VerificationRequestDialog from '@/app/components/VerificationRequestDialog';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 const captureException = console.error; const captureMessage = console.log;
-import { InternalApi } from '@trylinky/common';
+import { InternalApi } from '@app/common';
 import {
   Collapsible,
   CollapsibleContent,
@@ -21,7 +21,7 @@ import {
   Label,
   Switch,
   useToast,
-} from '@trylinky/ui';
+} from '@app/ui';
 import { Form, Formik, FormikHelpers } from 'formik';
 import { withZodSchema } from 'formik-validator-zod';
 import { Loader2 } from 'lucide-react';

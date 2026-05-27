@@ -5,16 +5,16 @@ import {
   MagicLinkEmail,
   OrganizationInviteEmail,
   WelcomeEmail,
-} from '@trylinky/notifications';
+} from '@app/notifications';
 import React from 'react';
 
 export async function sendEmail({
   email,
   subject,
-  from = 'Linky <team@notifications.lin.ky>',
+  from = 'Links <noreply@itsabhinaba.in>',
   react,
   text,
-  replyTo = 'team@lin.ky',
+  replyTo = 'noreply@itsabhinaba.in',
   scheduledAt,
 }: {
   email: string;
@@ -76,17 +76,17 @@ export async function sendOrganizationInvitationEmail({
 }) {
   return await sendEmail({
     email,
-    subject: "You've been invited to join a team on Linky",
+    subject: "You've been invited to join a team",
     react: <OrganizationInviteEmail inviteUrl={inviteLink} />,
   });
 }
 
 export async function sendWelcomeEmail(email: string) {
   return await sendEmail({
-    from: 'Alex from Linky<alex@notifications.lin.ky>',
-    replyTo: 'alex@lin.ky',
+    from: 'Links <noreply@itsabhinaba.in>',
+    replyTo: 'noreply@itsabhinaba.in',
     email,
-    subject: 'Welcome to Linky',
+    subject: 'Welcome!',
     react: <WelcomeEmail />,
   });
 }
@@ -95,12 +95,12 @@ export async function sendWelcomeFollowUpEmail(email: string) {
   const twentyThreeHoursFromNow = new Date(Date.now() + 23 * 60 * 60 * 1000);
 
   return await sendEmail({
-    from: 'Alex<alex@notifications.lin.ky>',
-    replyTo: 'alex@lin.ky',
+    from: 'Links <noreply@itsabhinaba.in>',
+    replyTo: 'noreply@itsabhinaba.in',
     email,
-    subject: 'Re: Welcome to Linky',
+    subject: 'Welcome!',
     scheduledAt: twentyThreeHoursFromNow,
-    text: "Hey,\n\nI'm Alex, the founder of Linky. Welcome!\n\nI wanted to reach out to see how you're finding using Linky so far?\n\nAs someone who has been creating content online for the past 15 years, I built Linky as a tool to make it easier to start building your presence online.\n\nIf you're looking for inspiration, we've also recently launched the explore gallery (lin.ky/i/explore), where you can find some of our favorite pages from the community.\n\nIf you have any questions or have any issues using the platform, feel free to respond to this email (I respond to every email personally).\n\nAlex",
+    text: 'Welcome to your links page! If you have any questions, feel free to reply to this email.',
   });
 }
 
@@ -113,7 +113,7 @@ export async function sendMagicLinkEmail({
 }) {
   return await sendEmail({
     email,
-    subject: 'Verify your Linky login',
+    subject: 'Verify your login',
     react: <MagicLinkEmail url={url} />,
   });
 }

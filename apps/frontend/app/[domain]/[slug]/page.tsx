@@ -7,7 +7,7 @@ import {
 import { getSession } from '@/app/lib/auth';
 import { renderBlock } from '@/lib/blocks/ui';
 import { isUserAgentMobile } from '@/lib/user-agent';
-import { Block, Integration } from '@trylinky/prisma';
+import { Block, Integration } from '@app/prisma';
 import type { Metadata, ResolvingMetadata } from 'next';
 import { headers } from 'next/headers';
 import { notFound } from 'next/navigation';
@@ -49,7 +49,7 @@ export async function generateMetadata(
         `${process.env.NEXT_PUBLIC_APP_URL}/${page?.slug}/opengraph-image`,
       ],
     },
-    title: `${page?.metaTitle} - Linky` || parentMeta.title?.absolute,
+    title: page?.metaTitle || parentMeta.title?.absolute,
     description: page?.metaDescription || parentMeta.description,
     alternates: {
       canonical: `https://${currentDomain}`,

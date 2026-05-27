@@ -1,4 +1,4 @@
-import { Input, cn } from '@trylinky/ui';
+import { Input, cn } from '@app/ui';
 import { Field } from 'formik';
 import { ReactNode } from 'react';
 

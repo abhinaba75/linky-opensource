@@ -2,7 +2,7 @@
 
 import { useActiveHeading } from '@/app/blog/[blogPostSlug]/rich-text-hooks';
 import slugify from '@sindresorhus/slugify';
-import { cn } from '@trylinky/ui';
+import { cn } from '@app/ui';
 import Link from 'next/link';
 import { JSX, ReactNode } from 'react';
 

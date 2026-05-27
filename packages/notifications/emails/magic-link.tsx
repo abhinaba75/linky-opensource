@@ -20,17 +20,17 @@ const MagicLinkEmail = ({ url }: MagicLinkEmailProps) => (
   <Html>
     <Head />
     <Body style={styles.main}>
-      <Preview>Your login code for Linky</Preview>
+      <Preview>Your login code</Preview>
       <Container style={styles.container}>
         <Logo />
 
         <EmailHeader
-          title="Your login code for Linky"
+          title="Your login code"
           subtitle="Click below to login"
         />
         <Section style={buttonContainer}>
           <Button style={button} href={url}>
-            Login to Linky
+            Login
           </Button>
         </Section>
         <Text style={styles.paragraph}>

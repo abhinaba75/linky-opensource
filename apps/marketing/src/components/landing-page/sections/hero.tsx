@@ -1,8 +1,8 @@
 import styles from '@/components/landing-page/styles.module.scss';
 import { MarketingContainer } from '@/components/marketing-container';
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
-import { LoginWidget } from '@trylinky/common';
-import { Button, cn } from '@trylinky/ui';
+import { LoginWidget } from '@app/common';
+import { Button, cn } from '@app/ui';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';

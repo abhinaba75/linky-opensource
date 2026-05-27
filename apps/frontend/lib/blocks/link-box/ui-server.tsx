@@ -14,7 +14,7 @@ export const LinkBoxServerUI: FunctionComponent<{
         {showPreview && (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={`https://shots.lin.ky/take?url=${link}`}
+            src={`https://api.microlink.io/?url=${link}&screenshot=true&meta=false&embed=screenshot.url`}
             className="w-full h-full object-cover"
             alt={`Preview of ${link}`}
           />

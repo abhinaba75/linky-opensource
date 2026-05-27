@@ -1,5 +1,5 @@
 {
-  "name": "@trylinky/marketing",
+  "name": "@app/marketing",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -17,9 +17,9 @@
     "@mdx-js/loader": "^3.1.0",
     "@next/mdx": "^16.2.4",
     "@sindresorhus/slugify": "^2.2.1",
-    "@trylinky/common": "workspace:*",
-    "@trylinky/prisma": "workspace:*",
-    "@trylinky/ui": "workspace:*",
+    "@app/common": "workspace:*",
+    "@app/prisma": "workspace:*",
+    "@app/ui": "workspace:*",
     "framer-motion": "^12.0.0-alpha.1",
     "@vercel/analytics": "^1.5.0",
     "better-auth": "^1.4.3",

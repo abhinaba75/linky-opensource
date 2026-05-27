@@ -1,7 +1,7 @@
 import { EditFormProps } from '../types';
 import { FormFileUpload } from '@/components/FormFileUpload';
-import { ImageBlockConfig, ImageSchema } from '@trylinky/blocks';
-import { Button } from '@trylinky/ui';
+import { ImageBlockConfig, ImageSchema } from '@app/blocks';
+import { Button } from '@app/ui';
 import { Form, Formik, FormikHelpers } from 'formik';
 import { Loader2 } from 'lucide-react';
 

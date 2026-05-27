@@ -2,8 +2,8 @@
 
 import { BlockProps } from '../ui';
 import { CoreBlock } from '@/components/CoreBlock';
-import { YouTubeBlockConfig } from '@trylinky/blocks';
-import { internalApiFetcher } from '@trylinky/common';
+import { YouTubeBlockConfig } from '@app/blocks';
+import { internalApiFetcher } from '@app/common';
 import { FunctionComponent } from 'react';
 import useSWR from 'swr';
 

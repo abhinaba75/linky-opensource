@@ -1,4 +1,4 @@
-import { PrismaClient } from '@trylinky/prisma';
+import { PrismaClient } from '@app/prisma';
 
 const prismaClientSingleton = () => {
   // Cloudflare D1 environment check

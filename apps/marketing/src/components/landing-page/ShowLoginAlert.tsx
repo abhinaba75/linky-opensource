@@ -1,6 +1,6 @@
 'use client';
 
-import { toast } from '@trylinky/ui';
+import { toast } from '@app/ui';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 

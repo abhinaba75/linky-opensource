@@ -1,5 +1,5 @@
 {
-  "name": "@trylinky/notifications",
+  "name": "@app/notifications",
   "version": "1.0.0",
   "description": "",
   "type": "module",

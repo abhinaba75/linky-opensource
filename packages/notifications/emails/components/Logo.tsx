@@ -4,10 +4,10 @@ import React from 'react';
 export function Logo() {
   return (
     <Img
-      src="https://lin.ky/assets/logo.png"
+      src="https://links.itsabhinaba.in/assets/logo.png"
       width="42"
       height="42"
-      alt="Linky"
+      alt="Links"
       style={logo}
     />
   );

@@ -5,7 +5,7 @@ import {
   SidebarContentHeader,
   SidebarGroup,
   SidebarGroupContent,
-} from '@trylinky/ui';
+} from '@app/ui';
 
 export function SidebarBlockForm({ onClose }: { onClose: () => void }) {
   const { currentEditingBlock } = useEditModeContext();

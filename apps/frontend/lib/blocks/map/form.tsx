@@ -2,7 +2,7 @@ import { EditFormProps } from '../types';
 import { FormField } from '@/components/FormField';
 import { useLoadScript } from '@react-google-maps/api';
 const captureException = console.error; const captureMessage = console.log;
-import { MapBlockConfig, mapThemes } from '@trylinky/blocks';
+import { MapBlockConfig, mapThemes } from '@app/blocks';
 import {
   Command,
   CommandEmpty,
@@ -11,7 +11,7 @@ import {
   CommandItem,
   CommandList,
   Button,
-} from '@trylinky/ui';
+} from '@app/ui';
 import { Form, Formik, FormikHelpers, useFormikContext } from 'formik';
 import { Loader2 } from 'lucide-react';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';

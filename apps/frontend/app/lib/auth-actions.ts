@@ -2,7 +2,7 @@
 
 import { apiServerFetch } from '@/app/lib/api-server';
 const captureException = console.error; const captureMessage = console.log;
-import { auth } from '@trylinky/common';
+import { auth } from '@app/common';
 
 export async function signOut() {
   await auth.signOut();

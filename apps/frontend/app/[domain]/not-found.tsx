@@ -14,8 +14,7 @@ export default async function NotFoundPage() {
               </h3>
               <div className="mt-2">
                 <p className="text-sm text-gray-500">
-                  We couldn&apos;t find the page you were looking for. Want to
-                  claim this username?
+                  The page you were looking for could not be found.
                 </p>
               </div>
             </div>

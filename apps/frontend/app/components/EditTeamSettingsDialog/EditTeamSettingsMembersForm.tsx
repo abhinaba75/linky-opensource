@@ -4,7 +4,7 @@ import { FormField } from '../FormField';
 import { teamInviteSchema } from './shared';
 import { auth } from '@/app/lib/auth';
 const captureException = console.error; const captureMessage = console.log;
-import { Invitation, User } from '@trylinky/prisma';
+import { Invitation, User } from '@app/prisma';
 import {
   Avatar,
   AvatarFallback,
@@ -12,7 +12,7 @@ import {
   Button,
   cn,
   useToast,
-} from '@trylinky/ui';
+} from '@app/ui';
 import { Form, Formik, FormikHelpers } from 'formik';
 import { withZodSchema } from 'formik-validator-zod';
 import { Loader2 } from 'lucide-react';

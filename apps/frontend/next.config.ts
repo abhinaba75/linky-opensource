@@ -5,12 +5,12 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion', '@heroicons/react', 'recharts', 'mapbox-gl', 'react-color', '@radix-ui/react-icons'],
   },
-  transpilePackages: ['@trylinky/ui', '@trylinky/common'],
+  transpilePackages: ['@app/ui', '@app/common'],
   serverExternalPackages: [
     '@prisma/client',
     '.prisma/client',
     '@prisma/adapter-d1',
-    '@trylinky/prisma'
+    '@app/prisma'
   ],
   webpack: (config, { isServer }) => {
     const path = require('path');
@@ -25,35 +25,7 @@ const nextConfig: NextConfig = {
     }
     return config;
   },
-  rewrites: async () => {
-    const marketingUrl = process.env.NEXT_PUBLIC_MARKETING_URL || 'http://localhost:3000';
-    return [
-      {
-        source: '/',
-        destination: `${marketingUrl}/i`,
-      },
-      {
-        source: '/sitemap.xml',
-        destination: `${marketingUrl}/i/sitemap.xml`,
-      },
-      {
-        source: '/i/:path*',
-        destination: `${marketingUrl}/i/:path*`,
-      },
-    ];
-  },
-  redirects: async () => [
-    {
-      source: '/i/learn/what-is-glow',
-      destination: '/i/learn/what-is-linky',
-      permanent: true,
-    },
-    {
-      source: '/i/learn/is-glow-free',
-      destination: '/i/learn/is-linky-free',
-      permanent: true,
-    },
-  ],
+
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   logging: {
     fetches: {

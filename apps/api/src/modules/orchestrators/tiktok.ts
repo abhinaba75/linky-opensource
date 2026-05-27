@@ -42,8 +42,8 @@ const createPage = async ({
       data: {
         organizationId,
         slug: newPageSlug,
-        metaTitle: `${tiktokUsername} on Linky`,
-        metaDescription: `${tiktokUsername} on Linky`,
+        metaTitle: `${tiktokUsername}`,
+        metaDescription: `${tiktokUsername}'s page`,
         publishedAt: new Date(),
         config: {},
       },
@@ -75,7 +75,7 @@ const createHeaderBlock = async ({
         config: {},
         data: {
           title: tiktokDisplayName,
-          description: `@${tiktokUsername} on Linky`,
+          description: `@${tiktokUsername}`,
           avatar: avatarUrl
             ? {
                 src: avatarUrl,
@@ -102,7 +102,7 @@ const createContentBlock = async ({ pageId }: { pageId: string }) => {
         data: {
           title: 'Welcome to my page!',
           content:
-            "This is my new page on Linky. I'm a TikTok creator, and I post videos about... well, you'll have to see for yourself!",
+            "I'm a TikTok creator, and I post videos about... well, you'll have to see for yourself!",
         },
       },
     });

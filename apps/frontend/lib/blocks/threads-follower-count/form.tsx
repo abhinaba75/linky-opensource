@@ -1,6 +1,6 @@
 import { EditFormProps } from '../types';
 import { BlockIntegrationUI } from '@/app/components/BlockIntegrationUI';
-import { InstagramLatestPostBlockConfig } from '@trylinky/blocks';
+import { InstagramLatestPostBlockConfig } from '@app/blocks';
 
 export function EditForm({
   integration,
