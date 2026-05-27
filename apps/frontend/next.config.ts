@@ -50,12 +50,12 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'cdn.dev.lin.ky',
+        hostname: 'cdn.dev.itsabhinaba.in',
         port: '',
       },
       {
         protocol: 'https',
-        hostname: 'cdn.lin.ky',
+        hostname: 'cdn.itsabhinaba.in',
         port: '',
       },
       {

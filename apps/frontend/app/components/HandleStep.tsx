@@ -17,7 +17,7 @@ export function HandleStep({ error, touched }: HandleStepProps) {
   return (
     <div>
       <FormField
-        withPrefix="lin.ky/"
+        withPrefix={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN || 'links.itsabhinaba.in'}/`}
         label="Handle"
         name="pageSlug" // This connects to Formik state in NewPageDialog.tsx
         placeholder="your-page"
