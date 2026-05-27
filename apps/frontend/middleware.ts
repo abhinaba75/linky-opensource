@@ -30,25 +30,16 @@ export default async function middleware(req: NextRequest) {
   // Create base URL once
   const baseUrl = new URL('', req.url);
 
-  // Handle root domain
-  if (hostname === rootDomain) {
-    return handleRootDomain(req, url.pathname, baseUrl);
-  }
-
-  // Handle unknown domains - reuse baseUrl
-  baseUrl.pathname = `/${hostname}/unknown`;
-  return NextResponse.rewrite(baseUrl);
-}
-
-async function handleRootDomain(req: NextRequest, path: string, baseUrl: URL) {
   const searchParams = req.nextUrl.searchParams.toString();
+  const path = url.pathname;
 
+  // Single-tenant: rewrite all traffic (including root) into [domain]/[slug] handler
   if (path === '/') {
-    return NextResponse.next();
+    baseUrl.pathname = `/${hostname}/home`;
+  } else {
+    baseUrl.pathname = `/${hostname}${path}`;
   }
 
-  // Rewrite all other paths
-  baseUrl.pathname = `/${req.headers.get('host')}${path}`;
   baseUrl.search = searchParams;
   return NextResponse.rewrite(baseUrl);
 }

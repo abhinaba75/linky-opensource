@@ -10,7 +10,7 @@ import { isUserAgentMobile } from '@/lib/user-agent';
 import { Block, Integration } from '@trylinky/prisma';
 import type { Metadata, ResolvingMetadata } from 'next';
 import { headers } from 'next/headers';
-import { notFound, redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -21,9 +21,6 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const params = await props.params;
-  const isCustomDomain =
-    decodeURIComponent(params.domain) !== process.env.NEXT_PUBLIC_ROOT_DOMAIN;
-
   const corePage = await getPageIdBySlugOrDomain(params.slug, params.domain);
 
   if (!corePage) {
@@ -37,6 +34,9 @@ export async function generateMetadata(
   }
 
   const parentMeta = await parent;
+
+  // Single-tenant: use the current domain for the canonical URL
+  const currentDomain = decodeURIComponent(params.domain);
 
   return {
     openGraph: {
@@ -52,9 +52,7 @@ export async function generateMetadata(
     title: `${page?.metaTitle} - Linky` || parentMeta.title?.absolute,
     description: page?.metaDescription || parentMeta.description,
     alternates: {
-      canonical: isCustomDomain
-        ? `https://${params.domain}`
-        : `https://${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/${params.slug}`,
+      canonical: `https://${currentDomain}`,
     },
   };
 }
@@ -114,14 +112,6 @@ export default async function Page(props: { params: Promise<Params> }) {
 
   if (page.publishedAt == null && !isEditMode) {
     return notFound();
-  }
-
-  if (
-    page.customDomain &&
-    page.customDomain !== decodeURIComponent(params.domain) &&
-    !isEditMode
-  ) {
-    redirect(`//${page.customDomain}`);
   }
 
   const isMobile = isUserAgentMobile(headersList.get('user-agent'));
