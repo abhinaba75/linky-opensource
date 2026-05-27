@@ -1,5 +1,5 @@
 import { EditFormProps } from '../types';
-import { captureException } from '@sentry/nextjs';
+const captureException = console.error; const captureMessage = console.log;
 import { InstagramFollowerCountBlockConfig } from '@trylinky/blocks';
 import { InternalApi } from '@trylinky/common';
 import { Button, toast } from '@trylinky/ui';

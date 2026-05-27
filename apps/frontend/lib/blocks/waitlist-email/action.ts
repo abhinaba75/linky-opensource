@@ -1,6 +1,6 @@
 'use server';
 
-import { captureException } from '@sentry/nextjs';
+const captureException = console.error; const captureMessage = console.log;
 
 export const submitSignupToWaitlistCom = async (formData: FormData) => {
   const email = formData.get('email') as string;

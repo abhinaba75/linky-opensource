@@ -1,7 +1,7 @@
 'use server';
 
 import { apiServerFetch } from '@/app/lib/api-server';
-import { captureException } from '@sentry/nextjs';
+const captureException = console.error; const captureMessage = console.log;
 import { auth } from '@trylinky/common';
 
 export async function signOut() {

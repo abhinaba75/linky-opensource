@@ -3,7 +3,7 @@
 import { PageConfig } from '@/app/[domain]/[slug]/grid';
 import { useEditModeContext } from '@/app/contexts/Edit';
 import { PencilSquareIcon, TrashIcon } from '@heroicons/react/24/outline';
-import { captureException } from '@sentry/nextjs';
+const captureException = console.error; const captureMessage = console.log;
 import { Blocks } from '@trylinky/blocks';
 import { InternalApi, internalApiFetcher } from '@trylinky/common';
 import { useSidebar, useToast } from '@trylinky/ui';

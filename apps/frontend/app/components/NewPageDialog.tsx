@@ -5,7 +5,7 @@ import { PagePreview } from './PagePreview';
 import { ThemeStep } from './ThemeStep';
 import { regexSlug } from '@/lib/slugs';
 import { defaultThemeSeeds } from '@/lib/theme';
-import { captureException } from '@sentry/nextjs';
+const captureException = console.error; const captureMessage = console.log;
 import { InternalApi } from '@trylinky/common';
 import {
   Dialog,

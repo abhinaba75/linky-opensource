@@ -6,7 +6,7 @@ import { updateDesignPageSettings } from './actions';
 import { designPageSettingsSchema } from './shared';
 import { CreateEditThemeForm } from '@/app/components/EditPageSettingsDialog/CreateNewTheme';
 import { PlusIcon } from '@heroicons/react/20/solid';
-import { captureException } from '@sentry/nextjs';
+const captureException = console.error; const captureMessage = console.log;
 import { internalApiFetcher } from '@trylinky/common';
 import { Theme } from '@trylinky/prisma';
 import { Button, DialogFooter, useToast } from '@trylinky/ui';

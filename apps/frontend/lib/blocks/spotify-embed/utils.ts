@@ -1,4 +1,4 @@
-import { captureException } from '@sentry/nextjs';
+const captureException = console.error; const captureMessage = console.log;
 
 export async function fetchData(spotifyAssetUrl: string) {
   try {

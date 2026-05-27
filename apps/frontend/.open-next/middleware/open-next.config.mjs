@@ -1,4 +1,4 @@
-// ../../node_modules/.pnpm/@opennextjs+cloudflare@1.19.11_next@16.2.6_@babel+core@7.28.5_@opentelemetry+api@1.9.1_react-_ua64nczvm4s2sfstudumhdp2ui/node_modules/@opennextjs/cloudflare/dist/api/cloudflare-context.js
+// ../../node_modules/.pnpm/@opennextjs+cloudflare@1.19.11_next@16.2.6_@opentelemetry+api@1.9.1_react-dom@19.0.0_react@19_kqmedkgooltsi5wwefca3setui/node_modules/@opennextjs/cloudflare/dist/api/cloudflare-context.js
 var cloudflareContextSymbol = Symbol.for("__cloudflare-context__");
 function getCloudflareContext(options = { async: false }) {
   return options.async ? getCloudflareContextAsync() : getCloudflareContextSync();
@@ -82,7 +82,7 @@ You should update your Next.js config file as shown below:
 
 `;
 
-// ../../node_modules/.pnpm/@opennextjs+cloudflare@1.19.11_next@16.2.6_@babel+core@7.28.5_@opentelemetry+api@1.9.1_react-_ua64nczvm4s2sfstudumhdp2ui/node_modules/@opennextjs/cloudflare/dist/api/overrides/asset-resolver/index.js
+// ../../node_modules/.pnpm/@opennextjs+cloudflare@1.19.11_next@16.2.6_@opentelemetry+api@1.9.1_react-dom@19.0.0_react@19_kqmedkgooltsi5wwefca3setui/node_modules/@opennextjs/cloudflare/dist/api/overrides/asset-resolver/index.js
 var resolver = {
   name: "cloudflare-asset-resolver",
   async maybeGetAssetResult(event) {
@@ -145,7 +145,7 @@ function isUserWorkerFirst(runWorkerFirst, pathname) {
 }
 var asset_resolver_default = resolver;
 
-// ../../node_modules/.pnpm/@opennextjs+cloudflare@1.19.11_next@16.2.6_@babel+core@7.28.5_@opentelemetry+api@1.9.1_react-_ua64nczvm4s2sfstudumhdp2ui/node_modules/@opennextjs/cloudflare/dist/api/config.js
+// ../../node_modules/.pnpm/@opennextjs+cloudflare@1.19.11_next@16.2.6_@opentelemetry+api@1.9.1_react-dom@19.0.0_react@19_kqmedkgooltsi5wwefca3setui/node_modules/@opennextjs/cloudflare/dist/api/config.js
 function defineCloudflareConfig(config = {}) {
   const { incrementalCache, tagCache, queue, cachePurge, enableCacheInterception = false, routePreloadingBehavior = "none" } = config;
   return {

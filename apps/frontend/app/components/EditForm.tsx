@@ -1,5 +1,5 @@
 import { editForms } from '@/lib/blocks/edit';
-import { captureException } from '@sentry/nextjs';
+const captureException = console.error; const captureMessage = console.log;
 import { Blocks } from '@trylinky/blocks';
 import { InternalApi, internalApiFetcher } from '@trylinky/common';
 import { toast } from '@trylinky/ui';

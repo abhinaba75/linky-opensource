@@ -3,7 +3,7 @@
 import { FormField } from '../FormField';
 import { teamInviteSchema } from './shared';
 import { auth } from '@/app/lib/auth';
-import { captureException } from '@sentry/nextjs';
+const captureException = console.error; const captureMessage = console.log;
 import { Invitation, User } from '@trylinky/prisma';
 import {
   Avatar,

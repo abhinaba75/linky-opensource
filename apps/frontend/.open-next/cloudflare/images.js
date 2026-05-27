@@ -16,7 +16,7 @@ var define_IMAGES_QUALITIES_default = [75];
 // <define:__IMAGES_REMOTE_PATTERNS__>
 var define_IMAGES_REMOTE_PATTERNS_default = [{ protocol: "https", hostname: "^(?:^(?:cdn\\.dev\\.glow\\.as)$)$", port: "", pathname: "^(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$))(?:(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$)).)*?)\\/?)$" }, { protocol: "https", hostname: "^(?:^(?:cdn\\.glow\\.as)$)$", port: "", pathname: "^(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$))(?:(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$)).)*?)\\/?)$" }, { protocol: "https", hostname: "^(?:^(?:cdn\\.dev\\.lin\\.ky)$)$", port: "", pathname: "^(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$))(?:(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$)).)*?)\\/?)$" }, { protocol: "https", hostname: "^(?:^(?:cdn\\.lin\\.ky)$)$", port: "", pathname: "^(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$))(?:(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$)).)*?)\\/?)$" }, { protocol: "https", hostname: "^(?:(?!\\.)(?=.)[^/]*?\\.r2\\.dev\\/?)$", port: "", pathname: "^(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$))(?:(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$)).)*?)\\/?)$" }, { protocol: "https", hostname: "^(?:(?!\\.)(?=.)[^/]*?\\.itsabhinaba\\.in\\/?)$", port: "", pathname: "^(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$))(?:(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$)).)*?)\\/?)$" }];
 
-// ../../node_modules/.pnpm/@opennextjs+aws@4.0.2_next@16.2.6_@babel+core@7.28.5_@opentelemetry+api@1.9.1_react-dom@19.0._t32vb7w422hcstl62dlmkqxygu/node_modules/@opennextjs/aws/dist/utils/error.js
+// ../../node_modules/.pnpm/@opennextjs+aws@4.0.2_next@16.2.6_@opentelemetry+api@1.9.1_react-dom@19.0.0_react@19.0.0__react@19.0.0_sass@1.100.0_/node_modules/@opennextjs/aws/dist/utils/error.js
 function isOpenNextError(e) {
   try {
     return "__openNextInternal" in e;
@@ -25,7 +25,7 @@ function isOpenNextError(e) {
   }
 }
 
-// ../../node_modules/.pnpm/@opennextjs+aws@4.0.2_next@16.2.6_@babel+core@7.28.5_@opentelemetry+api@1.9.1_react-dom@19.0._t32vb7w422hcstl62dlmkqxygu/node_modules/@opennextjs/aws/dist/adapters/logger.js
+// ../../node_modules/.pnpm/@opennextjs+aws@4.0.2_next@16.2.6_@opentelemetry+api@1.9.1_react-dom@19.0.0_react@19.0.0__react@19.0.0_sass@1.100.0_/node_modules/@opennextjs/aws/dist/adapters/logger.js
 function debug(...args) {
   if (globalThis.openNextDebug) {
     console.log(...args);
@@ -75,7 +75,7 @@ function getOpenNextErrorLogLevel() {
   }
 }
 
-// ../../node_modules/.pnpm/@opennextjs+cloudflare@1.19.11_next@16.2.6_@babel+core@7.28.5_@opentelemetry+api@1.9.1_react-_ua64nczvm4s2sfstudumhdp2ui/node_modules/@opennextjs/cloudflare/dist/cli/templates/images.js
+// ../../node_modules/.pnpm/@opennextjs+cloudflare@1.19.11_next@16.2.6_@opentelemetry+api@1.9.1_react-dom@19.0.0_react@19_kqmedkgooltsi5wwefca3setui/node_modules/@opennextjs/cloudflare/dist/cli/templates/images.js
 async function handleImageRequest(requestURL, requestHeaders, env) {
   const parseResult = parseImageRequest(requestURL, requestHeaders);
   if (!parseResult.ok) {

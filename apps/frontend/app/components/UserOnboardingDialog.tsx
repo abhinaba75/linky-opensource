@@ -3,7 +3,7 @@
 import { useSession } from '@/app/lib/auth';
 import { hideOnboardingTour } from '@/app/lib/auth-actions';
 import { useTour } from '@reactour/tour';
-import { captureException } from '@sentry/nextjs';
+const captureException = console.error; const captureMessage = console.log;
 import { internalApiFetcher } from '@trylinky/common';
 import { UserFlag } from '@trylinky/prisma';
 import {

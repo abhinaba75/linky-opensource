@@ -2,7 +2,7 @@
 
 import 'server-only';
 
-import { captureException } from '@sentry/nextjs';
+const captureException = console.error; const captureMessage = console.log;
 import crypto from 'crypto';
 
 const ALGORITHM = 'aes-256-gcm';

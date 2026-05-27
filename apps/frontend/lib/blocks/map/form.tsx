@@ -1,7 +1,7 @@
 import { EditFormProps } from '../types';
 import { FormField } from '@/components/FormField';
 import { useLoadScript } from '@react-google-maps/api';
-import { captureException } from '@sentry/nextjs';
+const captureException = console.error; const captureMessage = console.log;
 import { MapBlockConfig, mapThemes } from '@trylinky/blocks';
 import {
   Command,

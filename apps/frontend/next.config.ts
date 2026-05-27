@@ -1,16 +1,30 @@
-import { withSentryConfig } from '@sentry/nextjs';
 import type { NextConfig } from 'next';
 
 
 const nextConfig: NextConfig = {
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'framer-motion', '@heroicons/react', 'recharts', 'mapbox-gl', 'react-color', '@radix-ui/react-icons'],
+  },
   transpilePackages: ['@trylinky/ui', '@trylinky/common'],
   serverExternalPackages: [
     '@prisma/client',
     '.prisma/client',
     '@prisma/adapter-d1',
-    '@prisma/adapter-better-sqlite3',
-    'better-sqlite3'
+    '@trylinky/prisma'
   ],
+  webpack: (config, { isServer }) => {
+    const path = require('path');
+    config.resolve.alias['@prisma/client/runtime/client'] = path.resolve(__dirname, '../../packages/prisma/node_modules/@prisma/client/runtime/client.js');
+    if (isServer) {
+      const mockPath = path.resolve(__dirname, 'server-mock.js');
+      config.resolve.alias['mapbox-gl$'] = mockPath;
+      config.resolve.alias['react-grid-layout$'] = mockPath;
+      config.resolve.alias['react-color$'] = mockPath;
+      config.resolve.alias['recharts$'] = mockPath;
+      config.resolve.alias['framer-motion$'] = mockPath;
+    }
+    return config;
+  },
   rewrites: async () => {
     const marketingUrl = process.env.NEXT_PUBLIC_MARKETING_URL || 'http://localhost:3000';
     return [
@@ -86,14 +100,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default process.env.NEXT_PUBLIC_SENTRY_DSN
-  ? withSentryConfig(nextConfig, {
-      org: 'hyperdusk',
-      project: 'glow',
-      silent: true,
-      sourcemaps: {
-        disable: true,
-        deleteSourcemapsAfterUpload: true,
-      },
-    })
-  : nextConfig;
+export default nextConfig;

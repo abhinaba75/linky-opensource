@@ -3,7 +3,7 @@
 import { FormField } from '../FormField';
 import { updateGeneralTeamSettings } from './actions';
 import { generalTeamSettingsSchema } from './shared';
-import { captureException } from '@sentry/nextjs';
+const captureException = console.error; const captureMessage = console.log;
 import { Button, DialogFooter, useToast } from '@trylinky/ui';
 import { Form, Formik, FormikHelpers } from 'formik';
 import { withZodSchema } from 'formik-validator-zod';

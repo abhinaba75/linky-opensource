@@ -2,7 +2,7 @@ import {
   integrationUIConfig,
   SupportedIntegrations,
 } from '@/app/components/BlockIntegrationUI';
-import { captureException } from '@sentry/nextjs';
+const captureException = console.error; const captureMessage = console.log;
 import { InternalApi, internalApiFetcher } from '@trylinky/common';
 import { Integration } from '@trylinky/prisma';
 import {

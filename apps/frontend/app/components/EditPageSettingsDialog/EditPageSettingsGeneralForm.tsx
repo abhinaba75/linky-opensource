@@ -5,7 +5,7 @@ import { updateGeneralPageSettings } from './actions';
 import { generalPageSettingsSchema } from './shared';
 import VerificationRequestDialog from '@/app/components/VerificationRequestDialog';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
-import { captureException } from '@sentry/nextjs';
+const captureException = console.error; const captureMessage = console.log;
 import { InternalApi } from '@trylinky/common';
 import {
   Collapsible,

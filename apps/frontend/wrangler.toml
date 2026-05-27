@@ -2,6 +2,10 @@ name = "linky-frontend"
 main = ".open-next/worker.js"
 compatibility_date = "2025-04-01"
 compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+routes = [
+  { pattern = "links.itsabhinaba.in", custom_domain = true }
+]
 
 [assets]
 directory = ".open-next/assets"
@@ -20,6 +24,7 @@ binding = "UPLOADS"
 bucket_name = "linky-uploads"
 
 [vars]
+NEXT_PRIVATE_MINIMAL_MODE = "1"
 NEXT_PUBLIC_ROOT_DOMAIN = "links.itsabhinaba.in"
 NEXT_PUBLIC_BASE_URL = "https://links.itsabhinaba.in"
 NEXT_PUBLIC_API_URL = "https://linky-api.abhinaba.workers.dev"

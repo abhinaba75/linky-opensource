@@ -1,6 +1,6 @@
 'use client';
 
-import * as Sentry from '@sentry/nextjs';
+const Sentry = { captureException: console.error };
 import NextError from 'next/error';
 import { useEffect } from 'react';
 

@@ -3,7 +3,7 @@
 import { ThemeData } from '@/app/components/EditPageSettingsDialog/shared';
 import { getSession } from '@/app/lib/auth';
 import prisma from '@/lib/prisma';
-import { captureException } from '@sentry/nextjs';
+const captureException = console.error; const captureMessage = console.log;
 import { headers } from 'next/headers';
 
 export async function createTheme({

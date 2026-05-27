@@ -27,14 +27,7 @@ const getDb = cache(() => {
     return new PrismaClient({ adapter });
   }
 
-  // Local development SQLite fallback
-  const req = eval('require');
-  const { PrismaBetterSqlite3 } = req('@prisma/adapter-better-sqlite3');
-  const Database = req('better-sqlite3');
-  const db = new Database('./dev.db');
-  const adapter = new PrismaBetterSqlite3(db);
-
-  return new PrismaClient({ adapter });
+  throw new Error("D1 Database binding not found!");
 });
 
 export default new Proxy({} as PrismaClient, {

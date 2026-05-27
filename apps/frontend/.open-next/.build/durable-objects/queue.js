@@ -1,6 +1,6 @@
 globalThis.openNextDebug = false;globalThis.openNextVersion = "4.0.2";globalThis.nextVersion = "16.2.6";
 
-// ../../node_modules/.pnpm/@opennextjs+aws@4.0.2_next@16.2.6_@babel+core@7.28.5_@opentelemetry+api@1.9.1_react-dom@19.0._t32vb7w422hcstl62dlmkqxygu/node_modules/@opennextjs/aws/dist/utils/error.js
+// ../../node_modules/.pnpm/@opennextjs+aws@4.0.2_next@16.2.6_@opentelemetry+api@1.9.1_react-dom@19.0.0_react@19.0.0__react@19.0.0_sass@1.100.0_/node_modules/@opennextjs/aws/dist/utils/error.js
 var IgnorableError = class extends Error {
   __openNextInternal = true;
   canIgnore = true;
@@ -36,7 +36,7 @@ function isOpenNextError(e) {
   }
 }
 
-// ../../node_modules/.pnpm/@opennextjs+aws@4.0.2_next@16.2.6_@babel+core@7.28.5_@opentelemetry+api@1.9.1_react-dom@19.0._t32vb7w422hcstl62dlmkqxygu/node_modules/@opennextjs/aws/dist/adapters/logger.js
+// ../../node_modules/.pnpm/@opennextjs+aws@4.0.2_next@16.2.6_@opentelemetry+api@1.9.1_react-dom@19.0.0_react@19.0.0__react@19.0.0_sass@1.100.0_/node_modules/@opennextjs/aws/dist/adapters/logger.js
 function debug(...args) {
   if (globalThis.openNextDebug) {
     console.log(...args);
@@ -86,7 +86,7 @@ function getOpenNextErrorLogLevel() {
   }
 }
 
-// ../../node_modules/.pnpm/@opennextjs+cloudflare@1.19.11_next@16.2.6_@babel+core@7.28.5_@opentelemetry+api@1.9.1_react-_ua64nczvm4s2sfstudumhdp2ui/node_modules/@opennextjs/cloudflare/dist/api/durable-objects/queue.js
+// ../../node_modules/.pnpm/@opennextjs+cloudflare@1.19.11_next@16.2.6_@opentelemetry+api@1.9.1_react-dom@19.0.0_react@19_kqmedkgooltsi5wwefca3setui/node_modules/@opennextjs/cloudflare/dist/api/durable-objects/queue.js
 import { DurableObject } from "cloudflare:workers";
 var DEFAULT_MAX_REVALIDATION = 5;
 var DEFAULT_REVALIDATION_TIMEOUT_MS = 1e4;
@@ -156,7 +156,7 @@ var DOQueueHandler = class extends DurableObject {
         method: "HEAD",
         headers: {
           // This is defined during build
-          "x-prerender-revalidate": "9db36bbe96d4e8c23841edc1305aac1e",
+          "x-prerender-revalidate": "5aa30974eed4e56c43ce34ba06df6c86",
           "x-isr": "1"
         },
         // This one is kind of problematic, it will always show the wall time of the revalidation to `this.revalidationTimeout`
@@ -180,7 +180,7 @@ var DOQueueHandler = class extends DurableObject {
           "INSERT OR REPLACE INTO sync (id, lastSuccess, buildId) VALUES (?, unixepoch(), ?)",
           // We cannot use the deduplication id because it's not unique per route - every time a route is revalidated, the deduplication id is different.
           `${host}${url}`,
-          "cP6_7D476Mr4rK8oaGMn_"
+          "yGmyYlDR_mn5L2Yr7EldI"
         );
       }
       this.routeInFailedState.delete(msg.MessageDeduplicationId);
@@ -232,7 +232,7 @@ var DOQueueHandler = class extends DurableObject {
     }
     this.routeInFailedState.set(msg.MessageDeduplicationId, updatedFailedState);
     if (!this.disableSQLite) {
-      this.sql.exec("INSERT OR REPLACE INTO failed_state (id, data, buildId) VALUES (?, ?, ?)", msg.MessageDeduplicationId, JSON.stringify(updatedFailedState), "cP6_7D476Mr4rK8oaGMn_");
+      this.sql.exec("INSERT OR REPLACE INTO failed_state (id, data, buildId) VALUES (?, ?, ?)", msg.MessageDeduplicationId, JSON.stringify(updatedFailedState), "yGmyYlDR_mn5L2Yr7EldI");
     }
     await this.addAlarm();
   }
@@ -256,8 +256,8 @@ var DOQueueHandler = class extends DurableObject {
       return;
     this.sql.exec("CREATE TABLE IF NOT EXISTS failed_state (id TEXT PRIMARY KEY, data TEXT, buildId TEXT)");
     this.sql.exec("CREATE TABLE IF NOT EXISTS sync (id TEXT PRIMARY KEY, lastSuccess INTEGER, buildId TEXT)");
-    this.sql.exec("DELETE FROM failed_state WHERE buildId != ?", "cP6_7D476Mr4rK8oaGMn_");
-    this.sql.exec("DELETE FROM sync WHERE buildId != ?", "cP6_7D476Mr4rK8oaGMn_");
+    this.sql.exec("DELETE FROM failed_state WHERE buildId != ?", "yGmyYlDR_mn5L2Yr7EldI");
+    this.sql.exec("DELETE FROM sync WHERE buildId != ?", "yGmyYlDR_mn5L2Yr7EldI");
     const failedStateCursor = this.sql.exec("SELECT * FROM failed_state");
     for (const row of failedStateCursor) {
       this.routeInFailedState.set(row.id, JSON.parse(row.data));

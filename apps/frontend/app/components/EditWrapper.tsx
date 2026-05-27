@@ -4,7 +4,7 @@ import { PageConfig } from '@/app/[domain]/[slug]/grid';
 import { useEditModeContext } from '@/app/contexts/Edit';
 import { CoreBlock } from '@/components/CoreBlock';
 import { enableDragDropTouch } from '@/lib/polyfills/drag-drop-touch.esm.min.js';
-import { captureException } from '@sentry/nextjs';
+const captureException = console.error; const captureMessage = console.log;
 import { InternalApi, internalApiFetcher } from '@trylinky/common';
 import { Skeleton, useToast, cn } from '@trylinky/ui';
 import { useParams, useRouter } from 'next/navigation';

@@ -1,6 +1,6 @@
 'use server';
 
-import { captureException } from '@sentry/nextjs';
+const captureException = console.error; const captureMessage = console.log;
 import { formatISO, sub } from 'date-fns';
 
 export const fetchGithubData = async (githubUsername: string) => {

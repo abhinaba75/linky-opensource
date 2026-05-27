@@ -2,7 +2,7 @@
 
 import { hideOnboardingTour } from '@/app/lib/auth-actions';
 import { StepType, TourProvider, useTour } from '@reactour/tour';
-import { captureException } from '@sentry/nextjs';
+const captureException = console.error; const captureMessage = console.log;
 import { fetcher } from '@trylinky/common';
 import { SidebarProvider, Button } from '@trylinky/ui';
 import { ReactNode, useMemo, useState } from 'react';

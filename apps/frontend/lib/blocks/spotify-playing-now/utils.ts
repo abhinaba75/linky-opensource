@@ -2,7 +2,7 @@
 
 import { decrypt, encrypt } from '@/lib/encrypt';
 import prisma from '@/lib/prisma';
-import { captureException, captureMessage } from '@sentry/nextjs';
+const captureException = console.error; const captureMessage = console.log;
 import { SpotifyIntegrationConfig } from '@trylinky/blocks';
 import safeAwait from 'safe-await';
 
