@@ -45,7 +45,7 @@ export function PagePreview({
       </div>
 
       <p className="mt-4 text-sm font-mono text-slate-600 dark:text-slate-300 bg-slate-200 dark:bg-slate-700 px-2 py-1 rounded">
-        {(process.env.NEXT_PUBLIC_ROOT_DOMAIN || 'lin.ky')}/{pageSlug}
+        {(process.env.NEXT_PUBLIC_ROOT_DOMAIN || 'links.itsabhinaba.in')}/{pageSlug}
       </p>
 
       {currentStep === 2 && selectedThemeObject && (

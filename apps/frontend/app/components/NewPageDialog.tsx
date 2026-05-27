@@ -96,10 +96,10 @@ function HandleScreen({
       <div className="w-full md:w-1/2 p-4 md:p-6 flex flex-col border-r border-slate-200 dark:border-slate-700">
         <div className="mb-4 md:mb-6">
           <h2 className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-slate-100">
-            Choose your page handle
+            Set up your page
           </h2>
           <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 mt-1">
-            This will be your page's unique web address on {process.env.NEXT_PUBLIC_ROOT_DOMAIN || 'lin.ky'}.
+            Choose a handle for your page.
           </p>
         </div>
         <div className="flex-grow">
