@@ -72,23 +72,13 @@ export async function getPageThemeById(pageId: string) {
 }
 
 export async function getPageIdBySlugOrDomain(slug: string, domain: string) {
-  if (!slug && !domain) {
-    return null;
-  }
-
-  const appDomain = new URL(process.env.APP_FRONTEND_URL || 'http://localhost:3000');
-  const rootDomain =
-    process.env.NODE_ENV === 'production'
-      ? appDomain.hostname
-      : `${appDomain.hostname}:${appDomain.port}`;
-
-  const customDomain = domain && decodeURIComponent(domain) !== rootDomain;
-
+  // Single-tenant: always return the first page regardless of slug/domain
   const page = await prisma.page.findFirst({
     where: {
-      slug: customDomain ? undefined : slug,
-      customDomain: customDomain ? decodeURIComponent(domain) : undefined,
       deletedAt: null,
+    },
+    orderBy: {
+      createdAt: 'asc',
     },
     select: {
       id: true,

@@ -28,8 +28,6 @@ export async function getPageBySlugOrDomainHandler(
   }>,
   response: FastifyReply
 ): Promise<Static<(typeof getPageBySlugOrDomainSchema.response)[200]>> {
-  const { slug, domain } = request.query;
-
   const headers = request.headers;
 
   const apiKey = headers['x-api-key'];
@@ -38,20 +36,14 @@ export async function getPageBySlugOrDomainHandler(
     return response.forbidden();
   }
 
-  const appDomain = new URL(process.env.APP_FRONTEND_URL as string);
-  const rootDomain =
-    process.env.NODE_ENV === 'production'
-      ? appDomain.hostname
-      : `${appDomain.hostname}:${appDomain.port}`;
-
-  const customDomain = decodeURIComponent(domain) !== rootDomain;
-
+  // Single-tenant: always return the first page regardless of slug/domain
   const [error, page] = await safeAwait(
     prisma.page.findFirst({
       where: {
         deletedAt: null,
-        slug: customDomain ? undefined : slug,
-        customDomain: customDomain ? decodeURIComponent(domain) : undefined,
+      },
+      orderBy: {
+        createdAt: 'asc',
       },
       select: {
         id: true,
